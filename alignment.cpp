@@ -136,10 +136,10 @@ cout<<"The shift in Transition curve is: "<<s<<" meters";*/
 
 // stopping sight distance
 cout<<"Assuming the reaction time of driver to be 2.5 sec and frition between road and tyres as per indian standards be 0.15"<<endl;
-double ssd;
+double SSD;
 double f = 0.15, t = 2.5;
-ssd = vel*t + ((vel*vel)/(f*g));
-cout<<"stopping sight distance is "<<ssd<<" meters"<<endl;
+SSD = vel*t + ((vel*vel)/(f*g));
+cout<<"stopping sight distance is "<<SSD<<" meters"<<endl;
 
 // overtaking sight distance
 
