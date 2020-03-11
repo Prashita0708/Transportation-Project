@@ -133,14 +133,3 @@ cout<<"The length of the transition curve is: "<< ls<<" meters"<<endl;
 /*
 s=ls*ls/(24*R_rul);
 cout<<"The shift in Transition curve is: "<<s<<" meters";*/
-
-
-
-
-      
-    }
-    
-
-
-}
-
