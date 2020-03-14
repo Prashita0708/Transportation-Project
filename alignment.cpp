@@ -149,14 +149,10 @@ cout<<"While designing of horizontal curve we also need to calculate set back di
 
 // overtaking sight distance
 
-
-
-// sir se discuss karna hai
-
-
-
-// space for osd
-
+double OSD;
+// we will consider isd as osd since all calculations are done for constant design speed
+OSD = 2*SSD;
+cout<<"overtaking sight distance is "<<OSD<<" meters"<<endl;
 
 // designing of vertical curve
 cout<<"Firtly we need to know the elevation of ascending and descending gradient, since it primarilary describes our vertical curve"<<endl;
