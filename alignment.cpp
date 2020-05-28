@@ -127,7 +127,7 @@ ls= std::min(ls,ls3);
 
 cout<<"The length of the transition curve is: "<< ls<<" meters"<<endl;
 
-}
+
 
 /* Designing of shift of Transition curve*/
 /*
@@ -155,67 +155,67 @@ OSD = 2*SSD;
 cout<<"overtaking sight distance is "<<OSD<<" meters"<<endl;
 
 // designing of vertical curve
-cout<<"Firtly we need to know the elevation of ascending and descending gradient, since it primarilary describes our vertical curve"<<endl;
-cout<<"Note : Gradients are to be mentioned with signs. Positive sign indicates ascending gradient and negative sign indicates descending gradient"<<endl;
+cout<<"Designing Vertical Curve"<<endl;
+cout<<" Please Mention Gradients with sign(+ for ascending, - for descending)"<<endl;
 
-double n1,n2
+double n1,n2;
 cin>>n1;
 cin>>n2;
 
-double N = n1 - n2;
+double slope_diff = n1 - n2;
  
 /* if N is positive then our vertical curve is designed as summit curve and if N is negative then it is designed as valley curve*/
 /*The only problem in designing of vertical curves is to provide an adequate sight distance*/
 
-if(N > 0)
+if(slope_diff > 0)
 {
 // "Determining the length of vertical curve for stopping sight distance"
-cout<<"As per indian standards, assuming height of driver's eye level to be 1.2 m and height of obstacle to be 0.15 m"<<endl;	
+cout<<"As per IS CODE, assuming height of driver's eye level to be 1.2 m and height of obstacle to be 0.15 m"<<endl;	
 
 double LOVC1 = 0;
 
-	LOVC1 = 2*SSD - (4.4/N);
+	LOVC1 = 2*SSD - (4.4/slope_diff);
 	if(LOVC1 > SSD)
 	{
-		LOVC1 = N*S*S/4.4;
+		LOVC1 = slope_diff*SSD*SSD/4.4;
 	}
 	else
 	{
 		LOVC1 = LOVC1;
 	}
 	
-	cout<<"Length of vertical curve i.e; summit curve for safety against stopping sight distance is "<<LOVC1<< "" meters""<<endl;
+	cout<<"Length of summit curve for safety against stopping sight distance is "<<LOVC1<< "meters" <<endl;
 
-// "Dtermining the length of vertical curve for overtaking sight distance"
+// "Determining the length of vertical curve for overtaking sight distance"
 	
 double LOVC2 = 0;
 	
 	LOVC2 = 2*OSD - (9.6/N);
 	if(LOVC2 > OSD)
 	{
-		LOVC2 = N*S*S/9.6;
+		LOVC2 = N*SSD*SSD/9.6;
 	}
 	else
 	{
 		LOVC2 = LOVC2;
 	}
 	
-	cout<<"Length of vertical curve i.e; summit curve for safety against overtaking sight distance is "<<LOVC2<< "" meters""<<endl;
+	cout<<"Length of summit curve for safety against overtaking sight distance is "<<LOVC2<< " meters"<<endl;
 }
 else
 {
 	// Length of vertical curve or valley cuvre for head light sight distance 
-cout<<"As per indian standards, assuming the allowable rate of change of centrifugal accleration be 0.06 m/sec^2, average heigth of head be 0.75 m and beam angle be 1 degree"<<endl;
+cout<<"As per IS code assumptions: , allowable rate of change of centrifugal accleration = 0.06 m/sec^2"<<endl<< "average height of head = 0.75" <<endl<< "beam angle = 1 degree"<<endl;
 	
 	double C = 0.06;
 	double LOVC = 0,L1,L2;
 	
-	L1 = 2*sqrt(N*v*v*v/C);
+	L1 = 2*sqrt(slope_diff*v*v*v/C);
 	
-	L2 = 2*SSD - ((1.5 + 0.035*SSD)/N);
+	L2 = 2*SSD - ((1.5 + 0.035*SSD)/slope_diff);
 	if(L2 > SSD)
 	{
-		L2 = (N*S*S/(1.5 + 0.035*SSD));
+		L2 = (slope_diff*SSD*SSD/(1.5 + 0.035*SSD));
 	}
 	else
 	{
@@ -224,5 +224,6 @@ cout<<"As per indian standards, assuming the allowable rate of change of centrif
 	
 	LOVC = std::max(L1,L2);
 		
-	cout<<"Length of vertical curve i.e; valley curve for safety against head light sight distance is "<<LOVC<< "" meters""<<endl;	
-}	
+	cout<<"Length of valley curve for safety against head light sight distance is "<<LOVC<< "meters"<<endl;	
+}
+}
