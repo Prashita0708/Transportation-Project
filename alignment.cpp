@@ -138,7 +138,7 @@ cout<<"The shift in Transition curve is: "<<s<<" meters";*/
 cout<<"Assuming the reaction time of driver to be 2.5 sec and frition between road and tyres as per indian standards be 0.15"<<endl;
 double SSD;
 double t = 2.5;
-SSD = vel*t + ((vel*vel)/(f*g));
+SSD = v*t + ((v*v)/(f*g));
 cout<<"stopping sight distance is "<<SSD<<" meters"<<endl;
 
 // overtaking sight distance
@@ -218,6 +218,6 @@ cout<<"As per IS code assumptions: , allowable rate of change of centrifugal acc
 	
 	LOVC = std::max(L1,L2);
 		
-	cout<<"Length of valley curve for safety against head light sight distance is "<<LOVC<< "meters"<<endl;	
+	cout<<"Length of valley curve for safety against head light sight distance is "<<LOVC<< " meters"<<endl;	
 }
 }
