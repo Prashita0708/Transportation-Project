@@ -141,12 +141,6 @@ double t = 2.5;
 SSD = vel*t + ((vel*vel)/(f*g));
 cout<<"stopping sight distance is "<<SSD<<" meters"<<endl;
 
-// calculating set back distance
-cout<<"While designing of horizontal curve we also need to calculate set back distance in order to avoid collisons due to obstacles present on the inner lining of the road"<<endl;
-
-// sir se discuss karna hai
-
-
 // overtaking sight distance
 
 double OSD;
