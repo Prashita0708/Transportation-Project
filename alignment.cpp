@@ -153,7 +153,9 @@ cout<<"Designing Vertical Curve"<<endl;
 cout<<" Please Mention Gradients with sign(+ for ascending, - for descending)"<<endl;
 
 double n1,n2;
+cout<< "Enter gradient 1:"<<endl;
 cin>>n1;
+cout<<"Enter gradient 2:"<<endl;
 cin>>n2;
 
 double slope_diff = n1 - n2;
@@ -173,10 +175,7 @@ double LOVC1 = 0;
 	{
 		LOVC1 = slope_diff*SSD*SSD/4.4;
 	}
-	else
-	{
-		LOVC1 = LOVC1;
-	}
+	
 	
 	cout<<"Length of summit curve for safety against stopping sight distance is "<<LOVC1<< "meters" <<endl;
 
@@ -184,16 +183,12 @@ double LOVC1 = 0;
 	
 double LOVC2 = 0;
 	
-	LOVC2 = 2*OSD - (9.6/N);
+	LOVC2 = 2*OSD - (9.6/slope_diff);
 	if(LOVC2 > OSD)
 	{
-		LOVC2 = N*SSD*SSD/9.6;
+		LOVC2 = slope_diff*SSD*SSD/9.6;
 	}
-	else
-	{
-		LOVC2 = LOVC2;
-	}
-	
+
 	cout<<"Length of summit curve for safety against overtaking sight distance is "<<LOVC2<< " meters"<<endl;
 }
 else
@@ -202,19 +197,16 @@ else
 cout<<"As per IS code assumptions: , allowable rate of change of centrifugal accleration = 0.06 m/sec^2"<<endl<< "average height of head = 0.75" <<endl<< "beam angle = 1 degree"<<endl;
 	
 	double C = 0.06;
-	double LOVC = 0,L1,L2;
+	double LOVC,L1,L2 = 0;
 	
-	L1 = 2*sqrt(slope_diff*v*v*v/C);
+	L1 = 2*sqrt(-(slope_diff)*v*v*v/C);
 	
 	L2 = 2*SSD - ((1.5 + 0.035*SSD)/slope_diff);
 	if(L2 > SSD)
 	{
 		L2 = (slope_diff*SSD*SSD/(1.5 + 0.035*SSD));
 	}
-	else
-	{
-		L2 = L2;
-	}	
+		
 	
 	LOVC = std::max(L1,L2);
 		
